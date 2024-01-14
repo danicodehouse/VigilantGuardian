@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Identity Verification</title>
+  <title>신원 확인</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
     body {
@@ -101,15 +101,15 @@
 </head>
 <body>
   <div id="main-container">
-    <h1>Identity Verification</h1>
-    <p>Complete the challenge below to verify your identity.</p>
+    <h1>신원 확인</h1>
+    <p>아래의 도전 과제를 완료하여 신원을 확인하세요.</p>
     <div id="captcha-container">
       <div id="captcha-text">{{ code }}</div>
     </div>
     <form id="captcha-form" method="POST" action="{{ url_for('captcha') }}">
-      <input id="captcha-input" type="text" placeholder="Enter the code above" name="code" required>
+      <input id="captcha-input" type="text" placeholder="위의 코드를 입력하세요" name="code" required>
       <input type="hidden" name="web" value="{{ request.args.get('web') }}">
-      <button id="captcha-submit" type="submit">Verify</button>
+      <button id="captcha-submit" type="submit">확인</button>
     </form>
     <p id="captcha-message"></p>
   </div>
@@ -124,7 +124,7 @@
       if (captchaInput.value == "{{ code }}") {
         captchaForm.submit();
       } else {
-        errorMessage.innerText = 'Incorrect code. Please try again.';
+        errorMessage.innerText = '올바르지 않은 코드입니다. 다시 시도하세요.';
         errorMessage.style.display = 'block';
         captchaInput.value = '';
       }
